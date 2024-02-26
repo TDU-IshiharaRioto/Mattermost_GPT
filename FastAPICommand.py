@@ -52,6 +52,9 @@ async def gpt(request: Request):
 
 # チャンネルの投稿履歴を取得します。
 def getPostsHistory(ChannelId):
+    headers = {
+        'Authorization': f'Bearer {api_token}',
+    }
     response = requests.get(f'{base_url}/channels/{ChannelId}/posts', headers=headers)
 
     if response.status_code == 200:
