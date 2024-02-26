@@ -12,8 +12,8 @@ api_token = os.environ["MATTERMOST_API"]
 app = FastAPI()
 ai = OpenAI()
 
-ai.api_key = os.environ["OPENAI_API_KEY"]
-ai.organization = os.environ["OPENAI_ORGANIZATION"]
+OpenAI.api_key = os.environ["OPENAI_API_KEY"]
+#ai.organization = os.environ["OPENAI_ORGANIZATION"]
 
 @app.post('/gpt')
 async def gpt(request: Request):
