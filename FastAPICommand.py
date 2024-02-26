@@ -51,8 +51,8 @@ async def gpt(request: Request):
     return response
 
 # チャンネルの投稿履歴を取得します。
-def getPostsHistory(ChennelId):
-    response = requests.get(f'{base_url}/channels/{channel_id}/posts', headers=headers)
+def getPostsHistory(ChannelId):
+    response = requests.get(f'{base_url}/channels/{ChannelId}/posts', headers=headers)
 
     if response.status_code == 200:
         data = json.loads(response.content)
