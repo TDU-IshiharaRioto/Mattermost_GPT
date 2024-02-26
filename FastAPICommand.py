@@ -2,12 +2,14 @@ from fastapi import FastAPI, Request
 import uvicorn
 import requests
 import json
+from openai import OpenAI
 
 base_url = 'https://cci.trial.inl.aj.dendai.ac.jp/api/v4'
 api_token = '1pbn84itmjf9bp79txsgn8iwfw'
 
 
 app = FastAPI()
+ai = OpenAI()
 
 @app.post('/gpt')
 async def gpt(request: Request):
@@ -19,9 +21,6 @@ async def gpt(request: Request):
     channel_id = dictData.get('channel_id')
     print ("送信元Channel_idは、" + channel_id)
     history = getPostsHistory(channel_id)
-    
-    #履歴を表示
-    print(history)
 
     #辞書化したデータを一覧表示
     # for key in dictData:
@@ -40,9 +39,20 @@ async def gpt(request: Request):
     # user_name ishihararioto
 
     #履歴と問い合わせを結合
-    #query = history + dictData.get('text')
+    query = "いままでの履歴：" + history + "問い合わせ：" +  dictData.get('text')
 
     #OpenAIに問い合わせる
+    completion = ai.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+                "role": "友だち",
+                "content": query
+            }
+        ]
+    )
+
+    print (completion.choices[0].message)
 
     response = {
         "response_type": "in_channel",  # "in_channel" or "ephemeral"
