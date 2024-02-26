@@ -43,7 +43,9 @@ async def gpt(request: Request):
     # user_name ishihararioto
 
     #履歴と問い合わせを結合
-    query = "いままでの履歴：" + history + "問い合わせ：" +  dictData.get('text')
+    #query = "いままでの履歴：" + history + "問い合わせ：" +  dictData.get('text')
+    query = dictData.get('text')
+    print("問い合わせ：" + query)
 
     #OpenAIに問い合わせる
     completion = ai.chat.completions.create(
