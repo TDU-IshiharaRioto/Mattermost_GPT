@@ -3,6 +3,9 @@ import uvicorn
 import requests
 import json
 
+base_url = 'https://cci.trial.inl.aj.dendai.ac.jp/api/v4'
+api_token = '1pbn84itmjf9bp79txsgn8iwfw'
+
 
 app = FastAPI()
 
