@@ -3,6 +3,7 @@ import uvicorn
 import requests
 import json
 from openai import OpenAI
+import os
 
 base_url = 'https://cci.trial.inl.aj.dendai.ac.jp/api/v4'
 api_token = '1pbn84itmjf9bp79txsgn8iwfw'
@@ -11,8 +12,7 @@ api_token = '1pbn84itmjf9bp79txsgn8iwfw'
 app = FastAPI()
 ai = OpenAI()
 
-ai.api_key = "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"
-ai.organization = "org-RGVqrAC9EnDqLKZm6zK6Xmoi"
+ai.api_key = os.environ["OPENAI_API_KEY"]
 
 @app.post('/gpt')
 async def gpt(request: Request):
