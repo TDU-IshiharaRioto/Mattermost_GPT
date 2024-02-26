@@ -14,4 +14,4 @@ def slash_command():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='')
+    app.run(debug=True, port=5000, host='100.2.6.11')
