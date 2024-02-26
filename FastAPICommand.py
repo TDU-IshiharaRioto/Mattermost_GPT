@@ -13,16 +13,33 @@ async def gpt(request: Request):
     print("Received command:", data)
 
     #チャンネルIDから履歴を取得
-    # channel_id = jsondata.get('channel_id')
-    # print ("Channel_id = " + channel_id)
-    # history = getPostsHistory(channel_id)
+    channel_id = dictData.get('channel_id')
+    print ("送信元Channel_idは、" + channel_id)
+    history = getPostsHistory(channel_id)
     
-    #履歴と問い合わせを結合
-    #query = jsondata.get()
+    #履歴を表示
+    print(history)
 
     #辞書化したデータを一覧表示
-    for key in dictData:
-        print(key, dictData[key])
+    # for key in dictData:
+    #     print(key, dictData[key])
+    # 結果
+    # channel_id owxrkonrcjbkfkk6i7pnqtfmwh
+    # channel_name gpttest
+    # command /gpt
+    # response_url https://cci.trial.inl.aj.dendai.ac.jp/hooks/commands/6rm3n3ddcpdo7xjca7ih5zjk6r
+    # team_domain operation
+    # team_id czro41sdc3nz7kso7pscw5dpch
+    # text こんにちは。
+    # token macmo7pmjjgu8jcxmeo6joksde
+    # trigger_id emJrOGtiZGU3cHJzdGN3NGM2NW9hb2gzaWM6OGU0ZzU2MzF6amdxdXA4cjNkMTExNzloN2E6MTcwODk0MDQwMjY2OTpNRVVDSVFDQnZUamoyS24xZnZHcmpES1RhTDNsaEI3YUZiL2N5TTRLeHhhN1JKT3M2QUlnQXVYVGZLK21nYTZSRnZlM0owZWlWTEFVOVpGKzVMMm54WWFORzJObTBRcz0=
+    # user_id 8e4g5631zjgqup8r3d11179h7a
+    # user_name ishihararioto
+
+    #履歴と問い合わせを結合
+    #query = history + dictData.get('text')
+
+    #OpenAIに問い合わせる
 
     response = {
         "response_type": "in_channel",  # "in_channel" or "ephemeral"
