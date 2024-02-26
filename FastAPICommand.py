@@ -49,7 +49,7 @@ async def gpt(request: Request):
 
     #OpenAIに問い合わせる
     completion = ai.chat.completions.create(
-        model="gpt-3.5-turbo-instruct",
+        model="gpt-4-vision-preview",
         messages=[
             {
                 "role": "友だち",
