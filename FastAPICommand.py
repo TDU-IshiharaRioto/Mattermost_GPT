@@ -14,4 +14,4 @@ async def gpt(request: Request):
     return response
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='100.103.8.45', port=5000)
+    uvicorn.run(app, host='100.103.8.45', port=5000, debug=True)
