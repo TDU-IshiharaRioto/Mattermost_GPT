@@ -11,6 +11,9 @@ api_token = '1pbn84itmjf9bp79txsgn8iwfw'
 app = FastAPI()
 ai = OpenAI()
 
+ai.api_key = "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"
+ai.organization = "org-RGVqrAC9EnDqLKZm6zK6Xmoi"
+
 @app.post('/gpt')
 async def gpt(request: Request):
     data = await request.form()
