@@ -6,14 +6,14 @@ from openai import OpenAI
 import os
 
 base_url = 'https://cci.trial.inl.aj.dendai.ac.jp/api/v4'
-api_token = '1pbn84itmjf9bp79txsgn8iwfw'
+api_token = os.environ["MATTERMOST_API"]
 
 
 app = FastAPI()
 ai = OpenAI()
 
 ai.api_key = os.environ["OPENAI_API_KEY"]
-ai.organization = os.environ["OPENAI_ORGANIZATION"]
+#ai.organization = os.environ["OPENAI_ORGANIZATION"]
 
 @app.post('/gpt')
 async def gpt(request: Request):
