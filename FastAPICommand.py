@@ -53,12 +53,12 @@ async def gpt(request: Request):
         messages=[
             {
                 "role": "友だち",
-                "content": query
+                "content": "こんにちは"
             }
         ]
     )
 
-    print (completion.choices[0].message)
+    print (completion.choices[0].message.content)
 
     response = {
         "response_type": "in_channel",  # "in_channel" or "ephemeral"
