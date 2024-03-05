@@ -1,9 +1,12 @@
 from fastapi import FastAPI
-import openai
+from openai import OpenAI
 import os
 
 app = FastAPI()
-openai.api_key = os.environ["OPENAI_API_KEY"]
+client = OpenAI(
+    organization=os.environ["OPENAI_ORGANIZATION"]
+)
+OpenAI.api_key = os.environ["OPENAI_API_KEY"]
 
 @app.get("/greet")
 def greet():
