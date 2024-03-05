@@ -23,5 +23,4 @@ def greet():
     return {"message": completion.choices[0].message["content"]}
 
 if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host="100.103.8.45", port=5000)
+    print(greet())
