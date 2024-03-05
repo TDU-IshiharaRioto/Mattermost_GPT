@@ -58,7 +58,7 @@ async def gpt(request: Request):
         ]
     )
 
-    print (completion.choices[0].message.content)
+    print (completion.choices[0])
 
     response = {
         "response_type": "in_channel",  # "in_channel" or "ephemeral"
