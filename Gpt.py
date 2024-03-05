@@ -11,7 +11,7 @@ completion = client.chat.completions.create(
         },
         {
             "role": "user",
-            "content": "こんにちは"
+            "content": "Hello"
         }
     ]
 )
