@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-clien = OpenAI()
+client = OpenAI()
 
 completion = client.chat.completions.create(
     model="gpt-4",
